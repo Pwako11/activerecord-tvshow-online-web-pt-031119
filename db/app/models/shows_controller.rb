@@ -13,17 +13,17 @@ def lowest_rating
 end
 
 def least_popular_show
- Show.where("rating > ?", Lowest_rating)
+ Show.where("rating > ?", self.Lowest_rating).fisrt
 end 
 
 def ratings_sum
-  Show.sum( :rating)
+  Show.sum(:rating)
 end 
 
 def popular_shows
-  Show.where(rating: >5).to_a
+  Show.where("rating>=?", 5)
 end 
 
 def shows_by_alphabetical_order
-Show.order(name: :desc)
+Show.order(:name)
 end 
